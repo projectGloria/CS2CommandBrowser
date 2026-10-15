@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python virtual environment (created by build.ps1)
+.buildenv/
+.venv/
+venv/
+env/
+
+# Build artifacts (created by build.ps1 / cmake / pyinstaller)
+build/
+portable/
+portable-*/
+*.spec
+
+# Extractor executable (compiled into tools/ by build.ps1)
+tools/*.exe
+
+# Test / validation reports
+validation-report.json
+
+# Local app data & logs
+*.log
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

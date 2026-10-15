@@ -1,0 +1,17 @@
+{
+  "upstream_commit": "669f4430f5522394d7117556e04041b524cf9eb4",
+  "submodule_commits": [
+    " dc05bee30755bb993add7ed90845d87c2315f9c6 vendor/fmt (dc05bee)",
+    " 1ea60eea1bf8debf7711677ff6bcedaa6abbec26 vendor/hl2sdk-cs2 (1ea60ee)",
+    "-7a62b6727e5f8248a88bfa76c61316dbcc9cd558 vendor/hl2sdk-deadlock",
+    "-68710713fefab34ce0a956a9f85811f1294e0663 vendor/hl2sdk-dota",
+    " eba0a92bfb1abf242f30e894b96ba11c9f4048c7 vendor/json (eba0a92)",
+    " 45b67eee668507813743f84f1b1b9ab674ea221e vendor/spdlog (45b67ee)"
+  ],
+  "upstream": "https://github.com/ValveResourceFormat/DumpSource2",
+  "modified_upstream_source": false,
+  "built_at": "2026-10-15T01:32:32.721827+00:00",
+  "extractor_sha256": "1033ae7b87c33e6d060cf0693b06d096fc0548e73f8bea36dff59612c9a0305b",
+  "pyinstaller": "6.22.3",
+  "cmake": "4.4.4"
+}
