@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" width="100%" height="100%">
+  <defs>
+    <radialGradient id="diffGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#efb366" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#0a0c10" stop-opacity="1" />
+    </radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000000" flood-opacity="0.55" />
+    </filter>
+  </defs>
+
+  <rect width="880" height="340" rx="14" fill="#0d1017" />
+  <rect width="880" height="340" rx="14" fill="url(#diffGlow)" />
+
+  <text x="40" y="38" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="16" font-weight="600">Patch-to-Patch Differential Analysis</text>
+  <text x="40" y="58" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="11">Comparing Build 14068 → Build 14083: color-coded ConVar mutation tracking</text>
+
+  <!-- Diff Table Container -->
+  <g transform="translate(40, 80)" filter="url(#cardShadow)">
+    <rect width="800" height="220" rx="8" fill="#191e26" stroke="#303946" stroke-width="1.5" />
+    
+    <!-- Table Header -->
+    <rect width="800" height="32" rx="8" fill="#202731" />
+    <rect y="22" width="800" height="10" fill="#202731" />
+    <text x="20" y="21" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">STATUS</text>
+    <text x="140" y="21" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">VARIABLE / COMMAND</text>
+    <text x="420" y="21" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">OLD VALUE</text>
+    <text x="560" y="21" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">NEW VALUE</text>
+    <text x="700" y="21" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">MODULE</text>
+
+    <!-- Row 1: Added -->
+    <g transform="translate(0, 32)">
+      <rect width="800" height="36" fill="#191e26" />
+      <rect x="20" y="8" width="90" height="20" rx="3" fill="#1b2e20" stroke="#a7d7a0" stroke-width="1" />
+      <text x="65" y="22" fill="#a7d7a0" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">+ ADDED</text>
+      <text x="140" y="22" fill="#a7d7a0" font-family="Consolas, monospace" font-size="11">cl_crosshair_sniper_width</text>
+      <text x="420" y="22" fill="#687587" font-family="Consolas, monospace" font-size="11">—</text>
+      <text x="560" y="22" fill="#e9edf4" font-family="Consolas, monospace" font-size="11">1</text>
+      <text x="700" y="22" fill="#95a2b4" font-family="Consolas, monospace" font-size="11">client.dll</text>
+    </g>
+
+    <!-- Row 2: Changed -->
+    <g transform="translate(0, 68)">
+      <rect width="800" height="36" fill="#1e242d" />
+      <rect x="20" y="8" width="90" height="20" rx="3" fill="#3a2f1b" stroke="#efb366" stroke-width="1" />
+      <text x="65" y="22" fill="#efb366" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">~ CHANGED</text>
+      <text x="140" y="22" fill="#efb366" font-family="Consolas, monospace" font-size="11">cl_crosshairgap</text>
+      <text x="420" y="22" fill="#ef9f97" font-family="Consolas, monospace" font-size="11">-1.5</text>
+      <text x="560" y="22" fill="#a7d7a0" font-family="Consolas, monospace" font-size="11">-3.0</text>
+      <text x="700" y="22" fill="#95a2b4" font-family="Consolas, monospace" font-size="11">client.dll</text>
+    </g>
+
+    <!-- Row 3: Changed flags -->
+    <g transform="translate(0, 104)">
+      <rect width="800" height="36" fill="#191e26" />
+      <rect x="20" y="8" width="90" height="20" rx="3" fill="#3a2f1b" stroke="#efb366" stroke-width="1" />
+      <text x="65" y="22" fill="#efb366" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">~ CHANGED</text>
+      <text x="140" y="22" fill="#efb366" font-family="Consolas, monospace" font-size="11">sv_cheats</text>
+      <text x="420" y="22" fill="#95a2b4" font-family="Consolas, monospace" font-size="11">flags: (cheat, rep)</text>
+      <text x="560" y="22" fill="#e9edf4" font-family="Consolas, monospace" font-size="11">flags: (cheat, rep, dev)</text>
+      <text x="700" y="22" fill="#95a2b4" font-family="Consolas, monospace" font-size="11">server.dll</text>
+    </g>
+
+    <!-- Row 4: Removed -->
+    <g transform="translate(0, 140)">
+      <rect width="800" height="36" fill="#1e242d" />
+      <rect x="20" y="8" width="90" height="20" rx="3" fill="#331c1a" stroke="#ef9f97" stroke-width="1" />
+      <text x="65" y="22" fill="#ef9f97" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">- REMOVED</text>
+      <text x="140" y="22" fill="#ef9f97" font-family="Consolas, monospace" font-size="11">cl_bob_lower_amt</text>
+      <text x="420" y="22" fill="#e9edf4" font-family="Consolas, monospace" font-size="11">21</text>
+      <text x="560" y="22" fill="#687587" font-family="Consolas, monospace" font-size="11">—</text>
+      <text x="700" y="22" fill="#95a2b4" font-family="Consolas, monospace" font-size="11">client.dll</text>
+    </g>
+
+    <!-- Bottom summary row -->
+    <g transform="translate(0, 176)">
+      <rect width="800" height="44" rx="8" fill="#141820" />
+      <text x="20" y="26" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="11">Summary: <tspan fill="#a7d7a0" font-weight="bold">+14 Added</tspan> · <tspan fill="#efb366" font-weight="bold">~38 Changed</tspan> · <tspan fill="#ef9f97" font-weight="bold">-6 Removed</tspan> · Exportable to TXT, CSV, JSON, Markdown, and Alphabetical ZIP</text>
+    </g>
+  </g>
+</svg>

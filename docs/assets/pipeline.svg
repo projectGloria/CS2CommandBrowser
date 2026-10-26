@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" width="100%" height="100%">
+  <defs>
+    <radialGradient id="pipeBgGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#efb366" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0a0c10" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="pipeGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffc57c" />
+      <stop offset="100%" stop-color="#efb366" />
+    </linearGradient>
+    <filter id="boxShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <rect width="920" height="380" rx="14" fill="#0d1017" />
+  <rect width="920" height="380" rx="14" fill="url(#pipeBgGlow)" />
+
+  <text x="460" y="44" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="18" font-weight="600" text-anchor="middle">Offline Extraction &amp; Processing Architecture</text>
+  <text x="460" y="66" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="12" text-anchor="middle">Zero CS2 runtime hooks • Safe library cache • 100% Offline introspection</text>
+
+  <!-- Flow Boxes -->
+  <!-- Step 1: Game Directory -->
+  <g transform="translate(30, 100)" filter="url(#boxShadow)">
+    <rect width="150" height="200" rx="8" fill="#191e26" stroke="#303946" stroke-width="1.5" />
+    <rect width="150" height="36" rx="8" fill="#202731" />
+    <rect y="26" width="150" height="10" fill="#202731" />
+    <text x="75" y="23" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600" text-anchor="middle">1. CS2 Game Files</text>
+    
+    <g transform="translate(14, 54)">
+      <text x="0" y="16" fill="#efb366" font-family="Consolas, monospace" font-size="11">tier0.dll</text>
+      <text x="0" y="34" fill="#efb366" font-family="Consolas, monospace" font-size="11">client.dll</text>
+      <text x="0" y="52" fill="#efb366" font-family="Consolas, monospace" font-size="11">server.dll</text>
+      <text x="0" y="70" fill="#efb366" font-family="Consolas, monospace" font-size="11">engine2.dll</text>
+      <text x="0" y="88" fill="#efb366" font-family="Consolas, monospace" font-size="11">steam.inf</text>
+      <line x1="0" y1="102" x2="122" y2="102" stroke="#303946" stroke-width="1" />
+      <text x="0" y="118" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">Read-only access</text>
+      <text x="0" y="132" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">No cs2.exe launch</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g transform="translate(190, 190)">
+    <line x1="0" y1="0" x2="22" y2="0" stroke="#efb366" stroke-width="2" />
+    <polygon points="22,-4 30,0 22,4" fill="#efb366" />
+    <text x="15" y="-10" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9" text-anchor="middle">SHA-256 Copy</text>
+  </g>
+
+  <!-- Step 2: Private Cache -->
+  <g transform="translate(230, 100)" filter="url(#boxShadow)">
+    <rect width="150" height="200" rx="8" fill="#191e26" stroke="#303946" stroke-width="1.5" />
+    <rect width="150" height="36" rx="8" fill="#202731" />
+    <rect y="26" width="150" height="10" fill="#202731" />
+    <text x="75" y="23" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600" text-anchor="middle">2. Private Cache</text>
+    
+    <g transform="translate(14, 54)">
+      <text x="0" y="16" fill="#e9edf4" font-family="Consolas, monospace" font-size="10">%LOCALAPPDATA%</text>
+      <text x="0" y="32" fill="#95a2b4" font-family="Consolas, monospace" font-size="10">/CS2CommandBrowser</text>
+      <text x="0" y="48" fill="#efb366" font-family="Consolas, monospace" font-size="10">/cache/win64</text>
+      <line x1="0" y1="62" x2="122" y2="62" stroke="#303946" stroke-width="1" />
+      <text x="0" y="78" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Isolated copies</text>
+      <text x="0" y="94" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Unaltered source</text>
+      <text x="0" y="110" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Reused on rerun</text>
+      <text x="0" y="126" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Safe to purge</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g transform="translate(390, 190)">
+    <line x1="0" y1="0" x2="22" y2="0" stroke="#efb366" stroke-width="2" />
+    <polygon points="22,-4 30,0 22,4" fill="#efb366" />
+    <text x="15" y="-10" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9" text-anchor="middle">Spawn Offline</text>
+  </g>
+
+  <!-- Step 3: DumpSource2 Engine -->
+  <g transform="translate(430, 100)" filter="url(#boxShadow)">
+    <rect width="160" height="200" rx="8" fill="#191e26" stroke="#efb366" stroke-width="1.5" />
+    <rect width="160" height="36" rx="8" fill="#342b20" />
+    <rect y="26" width="160" height="10" fill="#342b20" />
+    <text x="80" y="23" fill="#efb366" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600" text-anchor="middle">3. DumpSource2</text>
+    
+    <g transform="translate(14, 54)">
+      <text x="0" y="16" fill="#ffdaaa" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">Offline Extraction</text>
+      <text x="0" y="34" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Reads ConVar arrays</text>
+      <text x="0" y="50" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Extracts ConCommands</text>
+      <text x="0" y="66" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Schema discovery</text>
+      <text x="0" y="82" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Flags &amp; range bounds</text>
+      <line x1="0" y1="96" x2="132" y2="96" stroke="#303946" stroke-width="1" />
+      <text x="0" y="112" fill="#a7d7a0" font-family="Segoe UI, sans-serif" font-size="10">✓ VAC-safe isolated</text>
+      <text x="0" y="126" fill="#a7d7a0" font-family="Segoe UI, sans-serif" font-size="10">✓ Pure C++ offline</text>
+    </g>
+  </g>
+
+  <!-- Arrow 3 -->
+  <g transform="translate(600, 190)">
+    <line x1="0" y1="0" x2="22" y2="0" stroke="#efb366" stroke-width="2" />
+    <polygon points="22,-4 30,0 22,4" fill="#efb366" />
+    <text x="15" y="-10" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9" text-anchor="middle">JSON Stream</text>
+  </g>
+
+  <!-- Step 4: Snapshot & Registry -->
+  <g transform="translate(640, 100)" filter="url(#boxShadow)">
+    <rect width="115" height="200" rx="8" fill="#191e26" stroke="#303946" stroke-width="1.5" />
+    <rect width="115" height="36" rx="8" fill="#202731" />
+    <rect y="26" width="115" height="10" fill="#202731" />
+    <text x="57" y="23" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" text-anchor="middle">4. Snapshot</text>
+    
+    <g transform="translate(10, 54)">
+      <text x="0" y="16" fill="#efb366" font-family="Consolas, monospace" font-size="10">snapshot.json</text>
+      <text x="0" y="32" fill="#95a2b4" font-family="Consolas, monospace" font-size="10">latest.json</text>
+      <text x="0" y="48" fill="#95a2b4" font-family="Consolas, monospace" font-size="10">extract.log</text>
+      <line x1="0" y1="62" x2="95" y2="62" stroke="#303946" stroke-width="1" />
+      <text x="0" y="78" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Build version</text>
+      <text x="0" y="94" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Hash stamps</text>
+      <text x="0" y="110" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">• Diff history</text>
+    </g>
+  </g>
+
+  <!-- Arrow 4 -->
+  <g transform="translate(765, 190)">
+    <line x1="0" y1="0" x2="22" y2="0" stroke="#efb366" stroke-width="2" />
+    <polygon points="22,-4 30,0 22,4" fill="#efb366" />
+  </g>
+
+  <!-- Step 5: UI & Export -->
+  <g transform="translate(795, 100)" filter="url(#boxShadow)">
+    <rect width="95" height="200" rx="8" fill="#191e26" stroke="#303946" stroke-width="1.5" />
+    <rect width="95" height="36" rx="8" fill="#202731" />
+    <rect y="26" width="95" height="10" fill="#202731" />
+    <text x="47" y="23" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" text-anchor="middle">5. Delivery</text>
+    
+    <g transform="translate(10, 54)">
+      <text x="0" y="16" fill="#ffdaaa" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">Tkinter GUI</text>
+      <text x="0" y="32" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">• Instant filter</text>
+      <text x="0" y="46" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">• Visual diffs</text>
+      <line x1="0" y1="58" x2="75" y2="58" stroke="#303946" stroke-width="1" />
+      <text x="0" y="74" fill="#efb366" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">Exporters</text>
+      <text x="0" y="90" fill="#95a2b4" font-family="Consolas, monospace" font-size="9">• TXT / CSV</text>
+      <text x="0" y="104" fill="#95a2b4" font-family="Consolas, monospace" font-size="9">• JSON / MD</text>
+      <text x="0" y="118" fill="#95a2b4" font-family="Consolas, monospace" font-size="9">• A-Z ZIP</text>
+    </g>
+  </g>
+</svg>

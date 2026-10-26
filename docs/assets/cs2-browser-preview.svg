@@ -1,0 +1,292 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%">
+  <defs>
+    <!-- Background & Window Gradients -->
+    <radialGradient id="bgGlow" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#efb366" stop-opacity="0.12" />
+      <stop offset="60%" stop-color="#191e26" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#0a0d12" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#c2cddb" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffc57c" />
+      <stop offset="100%" stop-color="#efb366" />
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="appShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#000000" flood-opacity="0.75" />
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#efb366" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Backdrop -->
+  <rect width="1000" height="620" rx="16" fill="#0c0f14" />
+  <rect width="1000" height="620" rx="16" fill="url(#bgGlow)" />
+
+  <!-- Subtle Tactical Grid Overlay -->
+  <g stroke="#ffffff" stroke-opacity="0.02" stroke-width="1">
+    <line x1="100" y1="0" x2="100" y2="620" />
+    <line x1="250" y1="0" x2="250" y2="620" />
+    <line x1="400" y1="0" x2="400" y2="620" />
+    <line x1="550" y1="0" x2="550" y2="620" />
+    <line x1="700" y1="0" x2="700" y2="620" />
+    <line x1="850" y1="0" x2="850" y2="620" />
+  </g>
+
+  <!-- Main Application Window Shell -->
+  <g filter="url(#appShadow)" transform="translate(25, 20)">
+    <!-- Window Frame -->
+    <rect width="950" height="580" rx="10" fill="#101318" stroke="#303946" stroke-width="1.5" />
+
+    <!-- Window Titlebar -->
+    <rect width="950" height="38" rx="10" fill="#191e26" />
+    <rect y="28" width="950" height="10" fill="#191e26" />
+    <line x1="0" y1="38" x2="950" y2="38" stroke="#303946" stroke-width="1" />
+
+    <!-- Titlebar Controls (Windows style) -->
+    <g transform="translate(900, 14)">
+      <line x1="-40" y1="6" x2="-30" y2="6" stroke="#95a2b4" stroke-width="1.2" />
+      <rect x="-20" y="1" width="10" height="10" fill="none" stroke="#95a2b4" stroke-width="1.2" />
+      <line x1="0" y1="1" x2="10" y2="11" stroke="#95a2b4" stroke-width="1.2" />
+      <line x1="10" y1="1" x2="0" y2="11" stroke="#95a2b4" stroke-width="1.2" />
+    </g>
+    <!-- Window Title Text -->
+    <text x="20" y="24" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="12" font-weight="500">CS2 Command Browser  —  Counter-Strike 2 Local Registry</text>
+
+    <!-- App Inner Padding -->
+    <g transform="translate(20, 52)">
+      <!-- HEADER ROW -->
+      <g>
+        <!-- Logo >_ Badge -->
+        <rect width="44" height="36" rx="6" fill="url(#goldGrad)" />
+        <text x="22" y="26" fill="#261b0c" font-family="Consolas, monospace" font-size="20" font-weight="bold" text-anchor="middle">&gt;_</text>
+
+        <!-- Brand Names -->
+        <text x="56" y="20" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600">Command browser</text>
+        <text x="56" y="33" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">COUNTER-STRIKE 2  /  LOCAL CATALOG</text>
+
+        <!-- Right Header Items: Build Tag & Export Button -->
+        <rect x="690" y="4" width="115" height="28" rx="4" fill="#202731" stroke="#303946" stroke-width="1" />
+        <text x="747" y="22" fill="#efb366" font-family="Consolas, monospace" font-size="11" font-weight="600" text-anchor="middle">BUILD 14083</text>
+
+        <rect x="815" y="3" width="95" height="30" rx="4" fill="url(#goldGrad)" />
+        <text x="862" y="22" fill="#261b0c" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Export  ▾</text>
+      </g>
+
+      <!-- SOURCE / GAME PATH PANEL -->
+      <g transform="translate(0, 50)">
+        <rect width="910" height="44" rx="6" fill="#191e26" stroke="#303946" stroke-width="1" />
+        <text x="16" y="26" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" letter-spacing="1">GAME FOLDER</text>
+        <rect x="110" y="8" width="560" height="28" rx="4" fill="#202731" stroke="#303946" stroke-width="1" />
+        <text x="122" y="26" fill="#e9edf4" font-family="Consolas, monospace" font-size="11">C:\Steam\steamapps\common\Counter-Strike Global Offensive\game</text>
+        <rect x="680" y="8" width="90" height="28" rx="4" fill="#202731" stroke="#303946" stroke-width="1" />
+        <text x="725" y="25" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="11" text-anchor="middle">Browse…</text>
+        <rect x="780" y="8" width="120" height="28" rx="4" fill="#303a48" />
+        <text x="840" y="25" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Refresh catalog</text>
+      </g>
+
+      <!-- Summary subtext -->
+      <text x="0" y="110" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="11">Active snapshot: 2,842 items loaded · csgo/steam.inf version 14083 · Cached offline</text>
+
+      <!-- MAIN SPLIT CONTENT -->
+      <g transform="translate(0, 124)">
+        <!-- SIDEBAR -->
+        <g>
+          <rect width="170" height="375" rx="6" fill="#101318" />
+          <text x="0" y="12" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" letter-spacing="1">LIBRARY</text>
+
+          <!-- Selected nav button -->
+          <rect y="24" width="170" height="32" rx="4" fill="#342b20" stroke="#efb366" stroke-width="1" />
+          <text x="14" y="45" fill="#efb366" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">All entries (2,842)</text>
+
+          <rect y="60" width="170" height="30" rx="4" fill="transparent" />
+          <text x="14" y="80" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="12">Variables (2,109)</text>
+
+          <rect y="94" width="170" height="30" rx="4" fill="transparent" />
+          <text x="14" y="114" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="12">Commands (733)</text>
+
+          <line x1="0" y1="136" x2="170" y2="136" stroke="#303946" stroke-width="1" />
+
+          <!-- Filters section -->
+          <text x="0" y="156" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" letter-spacing="1">FILTERS</text>
+
+          <text x="0" y="176" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">Flags &amp; availability</text>
+          <rect y="184" width="170" height="28" rx="4" fill="#202731" stroke="#303946" stroke-width="1" />
+          <text x="10" y="202" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="11">Any flags</text>
+          <text x="155" y="201" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">▾</text>
+
+          <text x="0" y="228" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">Compared with scan</text>
+          <rect y="236" width="170" height="28" rx="4" fill="#202731" stroke="#303946" stroke-width="1" />
+          <text x="10" y="254" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="11">All changes</text>
+          <text x="155" y="253" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">▾</text>
+
+          <rect y="276" width="170" height="26" rx="4" fill="#191e26" />
+          <text x="85" y="293" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" text-anchor="middle">Reset filters</text>
+
+          <line x1="0" y1="314" x2="170" y2="314" stroke="#303946" stroke-width="1" />
+          <rect y="324" width="170" height="28" rx="4" fill="#202731" />
+          <text x="14" y="342" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="11">Tools  ▾</text>
+        </g>
+
+        <!-- CENTER TABLE & ALPHABET -->
+        <g transform="translate(190, 0)">
+          <!-- Search Row -->
+          <rect width="460" height="34" rx="4" fill="#202731" stroke="#efb366" stroke-width="1.2" />
+          <text x="14" y="22" fill="#e9edf4" font-family="Consolas, monospace" font-size="13">cl_crosshair</text>
+          <rect x="410" y="4" width="44" height="26" rx="3" fill="#191e26" />
+          <text x="432" y="21" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" text-anchor="middle">Clear</text>
+
+          <!-- Subsearch text -->
+          <text x="0" y="48" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">Search names, descriptions, or flags    ·    Ctrl+F</text>
+          <text x="0" y="68" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">7 entries matched</text>
+          <text x="460" y="68" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" text-anchor="end">Comparing with Build 14068</text>
+
+          <!-- Alphabet bar -->
+          <g transform="translate(0, 78)">
+            <rect width="460" height="24" rx="3" fill="#191e26" />
+            <text x="15" y="16" fill="#efb366" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold">All</text>
+            <text x="42" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">A</text>
+            <text x="58" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">B</text>
+            <rect x="70" y="2" width="16" height="20" rx="2" fill="#efb366" />
+            <text x="78" y="16" fill="#261b0c" font-family="Segoe UI, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">C</text>
+            <text x="98" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">D</text>
+            <text x="114" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">E</text>
+            <text x="130" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">F</text>
+            <text x="146" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">G</text>
+            <text x="162" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">H</text>
+            <text x="178" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">I</text>
+            <text x="194" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">J</text>
+            <text x="210" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">K</text>
+            <text x="226" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">L</text>
+            <text x="242" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">M</text>
+            <text x="258" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">N</text>
+            <text x="274" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">O</text>
+            <text x="290" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">P</text>
+            <text x="306" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">Q</text>
+            <text x="322" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">R</text>
+            <text x="338" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">S</text>
+            <text x="354" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">T</text>
+            <text x="370" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">U</text>
+            <text x="386" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">V</text>
+            <text x="402" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">W</text>
+            <text x="418" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">X</text>
+            <text x="434" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">Y</text>
+            <text x="450" y="16" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="9">Z</text>
+          </g>
+
+          <!-- Table Header -->
+          <g transform="translate(0, 108)">
+            <rect width="460" height="26" fill="#202731" />
+            <text x="10" y="17" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">NAME</text>
+            <text x="250" y="17" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">KIND</text>
+            <text x="330" y="17" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">DEFAULT</text>
+            <text x="400" y="17" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">STATUS</text>
+          </g>
+
+          <!-- Table Rows -->
+          <!-- Row 1: Selected cl_crosshaircolor -->
+          <g transform="translate(0, 134)">
+            <rect width="460" height="32" fill="#3b3328" stroke="#efb366" stroke-width="1" />
+            <text x="10" y="21" fill="#ffdaaa" font-family="Consolas, monospace" font-size="11" font-weight="bold">cl_crosshaircolor</text>
+            <text x="250" y="21" fill="#ffdaaa" font-family="Consolas, monospace" font-size="10">Variable</text>
+            <text x="330" y="21" fill="#ffdaaa" font-family="Consolas, monospace" font-size="10">1</text>
+            <text x="400" y="21" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">Unchanged</text>
+          </g>
+          <!-- Row 2: cl_crosshairsize -->
+          <g transform="translate(0, 166)">
+            <rect width="460" height="30" fill="#1d232c" />
+            <text x="10" y="20" fill="#e9edf4" font-family="Consolas, monospace" font-size="11">cl_crosshairsize</text>
+            <text x="250" y="20" fill="#95a2b4" font-family="Consolas, monospace" font-size="10">Variable</text>
+            <text x="330" y="20" fill="#95a2b4" font-family="Consolas, monospace" font-size="10">2.5</text>
+            <text x="400" y="20" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">Unchanged</text>
+          </g>
+          <!-- Row 3: cl_crosshairgap (Changed / Amber) -->
+          <g transform="translate(0, 196)">
+            <rect width="460" height="30" fill="#191e26" />
+            <text x="10" y="20" fill="#efb366" font-family="Consolas, monospace" font-size="11">cl_crosshairgap</text>
+            <text x="250" y="20" fill="#efb366" font-family="Consolas, monospace" font-size="10">Variable</text>
+            <text x="330" y="20" fill="#efb366" font-family="Consolas, monospace" font-size="10">-3.0</text>
+            <text x="400" y="20" fill="#efb366" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">Changed</text>
+          </g>
+          <!-- Row 4: cl_crosshair_drawoutline -->
+          <g transform="translate(0, 226)">
+            <rect width="460" height="30" fill="#1d232c" />
+            <text x="10" y="20" fill="#e9edf4" font-family="Consolas, monospace" font-size="11">cl_crosshair_drawoutline</text>
+            <text x="250" y="20" fill="#95a2b4" font-family="Consolas, monospace" font-size="10">Variable</text>
+            <text x="330" y="20" fill="#95a2b4" font-family="Consolas, monospace" font-size="10">1</text>
+            <text x="400" y="20" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10">Unchanged</text>
+          </g>
+          <!-- Row 5: cl_crosshair_sniper_width (Added / Green) -->
+          <g transform="translate(0, 256)">
+            <rect width="460" height="30" fill="#191e26" />
+            <text x="10" y="20" fill="#a7d7a0" font-family="Consolas, monospace" font-size="11">cl_crosshair_sniper_width</text>
+            <text x="250" y="20" fill="#a7d7a0" font-family="Consolas, monospace" font-size="10">Variable</text>
+            <text x="330" y="20" fill="#a7d7a0" font-family="Consolas, monospace" font-size="10">1</text>
+            <text x="400" y="20" fill="#a7d7a0" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">+ Added</text>
+          </g>
+          <!-- Row 6: cl_crosshair_legacy_mode (Removed / Red) -->
+          <g transform="translate(0, 286)">
+            <rect width="460" height="30" fill="#1d232c" />
+            <text x="10" y="20" fill="#ef9f97" font-family="Consolas, monospace" font-size="11">cl_crosshair_legacy_mode</text>
+            <text x="250" y="20" fill="#ef9f97" font-family="Consolas, monospace" font-size="10">Variable</text>
+            <text x="330" y="20" fill="#ef9f97" font-family="Consolas, monospace" font-size="10">0</text>
+            <text x="400" y="20" fill="#ef9f97" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">- Removed</text>
+          </g>
+        </g>
+
+        <!-- RIGHT DETAIL INSPECTOR -->
+        <g transform="translate(670, 0)">
+          <rect width="240" height="375" rx="6" fill="#191e26" stroke="#303946" stroke-width="1" />
+          <g transform="translate(16, 16)">
+            <text x="0" y="10" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" letter-spacing="1">COMMAND DETAILS</text>
+
+            <text x="0" y="36" fill="#e9edf4" font-family="Consolas, monospace" font-size="15" font-weight="bold">cl_crosshaircolor</text>
+            <text x="0" y="54" fill="#efb366" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">VARIABLE  •  CLIENT.DLL</text>
+
+            <line x1="0" y1="66" x2="208" y2="66" stroke="#303946" stroke-width="1" />
+
+            <!-- Description -->
+            <text x="0" y="84" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">HELP TEXT</text>
+            <text x="0" y="102" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="11">Set crosshair color:</text>
+            <text x="0" y="118" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="10">0=Red, 1=Green, 2=Yellow,</text>
+            <text x="0" y="134" fill="#e9edf4" font-family="Segoe UI, sans-serif" font-size="10">3=Blue, 4=Cyan, 5=Custom</text>
+
+            <!-- Parameters Grid -->
+            <g transform="translate(0, 154)">
+              <text x="0" y="10" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">DEFAULT VALUE</text>
+              <text x="0" y="26" fill="#efb366" font-family="Consolas, monospace" font-size="12" font-weight="bold">1</text>
+
+              <text x="110" y="10" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">TYPE</text>
+              <text x="110" y="26" fill="#e9edf4" font-family="Consolas, monospace" font-size="11">int32</text>
+
+              <text x="0" y="50" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">VALID RANGE</text>
+              <text x="0" y="66" fill="#e9edf4" font-family="Consolas, monospace" font-size="11">[0, 5]</text>
+
+              <text x="110" y="50" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">MODULE</text>
+              <text x="110" y="66" fill="#e9edf4" font-family="Consolas, monospace" font-size="11">client.dll</text>
+
+              <text x="0" y="92" fill="#95a2b4" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600">REGISTERED FLAGS</text>
+              <g transform="translate(0, 102)">
+                <rect x="0" y="0" width="62" height="20" rx="3" fill="#202731" stroke="#303946" stroke-width="1" />
+                <text x="31" y="14" fill="#95a2b4" font-family="Consolas, monospace" font-size="10" text-anchor="middle">archive</text>
+
+                <rect x="68" y="0" width="54" height="20" rx="3" fill="#202731" stroke="#303946" stroke-width="1" />
+                <text x="95" y="14" fill="#95a2b4" font-family="Consolas, monospace" font-size="10" text-anchor="middle">client</text>
+
+                <rect x="128" y="0" width="74" height="20" rx="3" fill="#202731" stroke="#303946" stroke-width="1" />
+                <text x="165" y="14" fill="#95a2b4" font-family="Consolas, monospace" font-size="10" text-anchor="middle">replicated</text>
+              </g>
+
+              <!-- Copy command quick action -->
+              <rect x="0" y="140" width="208" height="28" rx="4" fill="#202731" stroke="#303946" stroke-width="1" />
+              <text x="104" y="158" fill="#efb366" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Copy Default Command (Ctrl+C)</text>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
