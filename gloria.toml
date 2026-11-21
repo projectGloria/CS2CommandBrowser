@@ -1,6 +1,6 @@
 id            = "CS2CommandBrowser"
 name          = "CS2CommandBrowser"
-version       = "1.1.0"
+version       = "1.1.1"
 main_exe      = "CS2 Command Browser.exe"
 icon          = "assets/icon.ico"
 accent        = "#fb923c"
