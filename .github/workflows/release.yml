@@ -1,0 +1,92 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch the DumpSource2 extractor source (pinned commit)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $commit = (Get-Content tools/extractor-build.json -Raw | ConvertFrom-Json).upstream_commit
+          git clone https://github.com/ValveResourceFormat/DumpSource2 vendor/DumpSource2
+          if ($LASTEXITCODE -ne 0) { throw 'clone failed' }
+          Push-Location vendor/DumpSource2
+          git checkout $commit
+          if ($LASTEXITCODE -ne 0) { throw 'checkout failed' }
+          git submodule update --init --depth 1 vendor/hl2sdk-cs2 vendor/fmt vendor/spdlog vendor/json
+          if ($LASTEXITCODE -ne 0) { throw 'submodule update failed' }
+          Pop-Location
+
+      - name: Install build tools
+        shell: pwsh
+        run: |
+          python -m pip install 'cmake==4.4.4' 'pyinstaller==6.22.3'
+          if ($LASTEXITCODE -ne 0) { throw 'pip failed' }
+
+      - name: Build the extractor
+        shell: pwsh
+        run: |
+          cmake -S vendor/DumpSource2 -B build/extractor -G 'Visual Studio 17 2022' -A x64
+          if ($LASTEXITCODE -ne 0) { throw 'cmake configure failed' }
+          cmake --build build/extractor --config Release --target DumpSource2-CS2 -j 4
+          if ($LASTEXITCODE -ne 0) { throw 'cmake build failed' }
+          Copy-Item build/extractor/Release/DumpSource2-CS2.exe tools/DumpSource2-CS2.exe
+          python record_build.py
+          if ($LASTEXITCODE -ne 0) { throw 'record_build failed' }
+
+      - name: Test
+        shell: pwsh
+        run: |
+          python -m unittest -v test_core.py
+          if ($LASTEXITCODE -ne 0) { throw 'tests failed' }
+
+      - name: Build the app (PyInstaller --onedir)
+        shell: pwsh
+        run: |
+          $bin = (Resolve-Path tools/DumpSource2-CS2.exe).Path + ';tools'
+          $meta = (Resolve-Path tools/extractor-build.json).Path + ';tools'
+          python -m PyInstaller --noconfirm --windowed --onedir --name 'CS2 Command Browser' --icon assets/icon.ico --distpath dist-app --workpath build/pyinstaller --specpath build --add-binary $bin --add-data $meta app.py
+          if ($LASTEXITCODE -ne 0) { throw 'PyInstaller failed' }
+
+      - name: Collect runtime files
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory app-dist | Out-Null
+          Copy-Item -Path 'dist-app/CS2 Command Browser/*' -Destination app-dist -Recurse
+          if (-not (Test-Path 'app-dist/CS2 Command Browser.exe')) { throw 'main exe missing from app-dist' }
+
+      - name: Make sure the release exists
+        shell: pwsh
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view $env:GITHUB_REF_NAME 2>$null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $env:GITHUB_REF_NAME --generate-notes --verify-tag
+            if ($LASTEXITCODE -ne 0) { throw 'could not create the release' }
+          }
+          $global:LASTEXITCODE = 0
+
+      - uses: projectGloria/GloriaSetup@v0.1.0
+        with:
+          app-dir: app-dist
+          manifest: gloria.toml
+          certificate: ${{ secrets.WINDOWS_PFX_BASE64 }}
+          certificate-password: ${{ secrets.WINDOWS_PFX_PASSWORD }}
