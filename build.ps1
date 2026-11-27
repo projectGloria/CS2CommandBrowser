@@ -39,7 +39,10 @@ if ($LASTEXITCODE -ne 0) { throw 'Could not record build provenance.' }
 if ($LASTEXITCODE -ne 0) { throw 'Tests failed.' }
 $binaryArgument = (Join-Path $PSScriptRoot 'tools\DumpSource2-CS2.exe') + ';tools'
 $metadataArgument = (Join-Path $PSScriptRoot 'tools\extractor-build.json') + ';tools'
-& $python -m PyInstaller --noconfirm --windowed --onedir --name 'CS2 Command Browser' --distpath '.\portable-v1.1' --workpath '.\build\pyinstaller' --specpath '.\build' --add-binary $binaryArgument --add-data $metadataArgument '.\app.py'
+$versionFile = Join-Path $PSScriptRoot 'build\version_info.txt'
+& $python '.\write_version_info.py' $versionFile
+if ($LASTEXITCODE -ne 0) { throw 'Could not write the exe version info.' }
+& $python -m PyInstaller --noconfirm --version-file $versionFile --windowed --onedir --name 'CS2 Command Browser' --distpath '.\portable-v1.1' --workpath '.\build\pyinstaller' --specpath '.\build' --add-binary $binaryArgument --add-data $metadataArgument '.\app.py'
 if ($LASTEXITCODE -ne 0) { throw 'Desktop app packaging failed.' }
 & $python '.\package_source.py'
 if ($LASTEXITCODE -ne 0) { throw 'Source and license packaging failed.' }
